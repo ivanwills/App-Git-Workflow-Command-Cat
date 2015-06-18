@@ -24,8 +24,14 @@ sub run {
 
     get_options(
         \%option,
+        'revision|r=s',
         'quiet|q',
     );
+
+    my $revision = $option{revision} || 'HEAD';
+    my $file     = shift @ARGV;
+
+    print scalar $workflow->git->show("$revision:$file");
 
     return;
 }
