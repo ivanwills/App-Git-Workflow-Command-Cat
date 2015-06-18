@@ -8,37 +8,31 @@ package App::Git::Workflow::Command::Cat;
 
 use strict;
 use warnings;
-use version;
-use Carp;
-use Scalar::Util;
-use List::Util;
-#use List::MoreUtils;
+use Pod::Usage ();
 use Data::Dumper qw/Dumper/;
 use English qw/ -no_match_vars /;
-use base qw/Some::Thing/;
+use App::Git::Workflow;
+use App::Git::Workflow::Command qw/get_options/;
 
+our $VERSION  = 0.2;
+our $workflow = App::Git::Workflow->new;
+our ($name)   = $PROGRAM_NAME =~ m{^.*/(.*?)$}mxs;
+our %option;
 
-our $VERSION     = version->new('0.0.1');
-our @EXPORT_OK   = qw//;
-our %EXPORT_TAGS = ();
-#our @EXPORT      = qw//;
+sub run {
+    my ($self) = @_;
 
-sub new {
-	my $caller = shift;
-	my $class  = ref $caller ? ref $caller : $caller;
-	my %param  = @_;
-	my $self   = \%param;
+    get_options(
+        \%option,
+        'quiet|q',
+    );
 
-	bless $self, $class;
-
-	return $self;
+    return;
 }
-
-
 
 1;
 
-__END__
+__DATA__
 
 =head1 NAME
 
