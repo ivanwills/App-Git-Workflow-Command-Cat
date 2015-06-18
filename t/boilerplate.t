@@ -58,6 +58,6 @@ subtest 'Changes' => sub {
     );
 };
 
-module_boilerplate_ok('bin/1');
+module_boilerplate_ok('bin/git-cat');
 module_boilerplate_ok('lib/App/Git/Workflow/Command/Cat.pm');
 done_testing();
