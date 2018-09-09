@@ -75,3 +75,4 @@ tmp*
 temp*
 ^MYMETA\.json$
 tags
+.vtide.yml
